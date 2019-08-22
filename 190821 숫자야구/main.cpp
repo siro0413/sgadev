@@ -9,25 +9,19 @@ int main()
 
 	for (int i = 0; i < 10; i++)
 	{
-		for (int j = 0; j < 3; j++)
-		{
-			for (int k = 0; k < 3; k++)
-			{
-				int src = rand() % 10;
-				int dst = rand() % 10;
-				int kfc = rand() % 10;
+		int src = rand() % 10;
+		int dst = rand() % 10;
+		int kfc = rand() % 10;
 				
-				int temp = com[src];
-				com[src] = com[dst];
-				com[dst] = com[kfc];
-				com[kfc] = temp;				
-			}
-		}
+		int temp = com[src];
+		com[src] = com[dst];
+		com[dst] = temp;				
+
 	}
 
 	while (true)
 	{
-		cout << "¼ıÀÚ 3ÀÚ¸® ÀÔ·ÂÇÏ½Ê½Ã¿ä" << endl;
+		cout << "ìˆ«ì 3ìë¦¬ ì…ë ¥í•˜ì‹­ì‹œìš”" << endl;
 		cin >> input[0] >> input[1] >> input[2];
 
 		//3Strike
@@ -36,16 +30,16 @@ int main()
 			cout << "3Strike" << endl;
 			cout << "Clear!" << endl << endl;
 
-			cout << "Á¤´äÀº : " << com[0] << "," << com[1] << "," << com[2] << endl;
+			cout << "ì •ë‹µì€ : " << com[0] << "," << com[1] << "," << com[2] << endl;
 			Sleep(2000);
 			system("cls");
 		}
 		//2Strike 1Out
-		else if (com[0] == input[0] && com[1] == input[1] && (com[2] > input[2] || com[2] < input[2])) //2¹øÆ²¸²
+		else if (com[0] == input[0] && com[1] == input[1] && (com[2] > input[2] || com[2] < input[2])) //2ë²ˆí‹€ë¦¼
 			cout << "2Strike 1Out" << endl;
-		else if (com[0] == input[0] && com[2] == input[2] && (com[1] > input[1] || com[1] < input[1])) //1¹øÆ²¸²
+		else if (com[0] == input[0] && com[2] == input[2] && (com[1] > input[1] || com[1] < input[1])) //1ë²ˆí‹€ë¦¼
 			cout << "2Strike 1Out" << endl;
-		else if (com[2] == input[2] && com[1] == input[1] && (com[0] > input[0] || com[0] < input[0])) //0¹øÆ²¸²
+		else if (com[2] == input[2] && com[1] == input[1] && (com[0] > input[0] || com[0] < input[0])) //0ë²ˆí‹€ë¦¼
 			cout << "2Strike 1Out" << endl;
 		//1Strike 2Ball
 		//00 12 21 , 01 10 21 , 02 11 20
