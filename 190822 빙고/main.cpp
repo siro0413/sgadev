@@ -1,0 +1,198 @@
+#include "stdafx.h"
+using namespace std;
+
+void Initialize();
+void shuffle(int count);
+void shownumber();
+int Getinput();
+void Setmarking(int ninput);
+void check();
+void endpage();
+
+const int marking = '*';
+int BinggoNum[25];
+int binggocount = 0;
+
+int main()
+{
+	Initialize();
+	shuffle(100);
+
+	while (true)
+	{
+		COORD pos;
+		pos.X = 4;
+		pos.Y = 5;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+		shownumber();
+		Setmarking(Getinput());
+		check();
+
+		if (binggocount >= 5)break;
+
+	}
+	shownumber();
+	system("cls");
+	endpage();
+
+
+}
+//BinggoNumber reset
+void Initialize()
+{
+	for (int i = 0; i < 25; i++)
+	{
+		BinggoNum[i] = i + 1;
+	}
+}
+
+//BinggoNumber shuffle
+void shuffle(int count)
+{
+	srand((unsigned)time(NULL));
+
+	for (int i = 0; i < count; i++)
+	{
+		int src = rand() % 25;
+		int dst = rand() % 25;
+		int temp = BinggoNum[src];
+		BinggoNum[src] = BinggoNum[dst];
+		BinggoNum[dst] = temp;
+
+	}
+
+}
+
+void shownumber()
+{
+	system("cls");
+
+	for (int i = 0; i < 25; i++)
+	{
+		if (i % 5 == 0)
+			cout << endl << endl;
+		if (BinggoNum[i] == marking)
+			cout << (char)BinggoNum[i] << '\t';
+		else
+			cout << (int)BinggoNum[i] << '\t';
+
+	}
+	cout << endl;
+	COORD pos;
+	pos.X = 50;
+	pos.Y = 5;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+	cout << "Bingo Check	: " << binggocount << endl;
+
+
+}
+
+int Getinput()
+{
+	COORD pos;
+	pos.X = 50;
+	pos.Y = 6;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+	int ninput = 0;
+	cout << "Input Number	: ";
+	cin >> ninput;
+
+	return ninput;
+}
+
+void Setmarking(int ninput)
+{
+	for (int i = 0; i < 25; i++)
+	{
+		if (BinggoNum[i] == ninput)
+		{
+			BinggoNum[i] = marking;
+			break;
+		}
+	}
+}
+
+void check()
+{
+	binggocount = 0;
+	for (int i = 0; i < 5; i++)
+	{
+		if (BinggoNum[i * 5] == marking && 
+			BinggoNum[i * 5 + 1] == marking && 
+			BinggoNum[i * 5 + 2] == marking && 
+			BinggoNum[i * 5 + 3] == marking &&
+			BinggoNum[i * 5 + 4] == marking)
+			binggocount++;
+		
+		if (BinggoNum[i] == marking && 
+			BinggoNum[i + 5 * 1] == marking && 
+			BinggoNum[i + 5 * 2] == marking && 
+			BinggoNum[i + 5 * 3] == marking &&
+			BinggoNum[i + 5 * 4] == marking)
+			binggocount++;
+	}
+
+
+		if (BinggoNum[0] == marking && 
+			BinggoNum[6] == marking && 
+			BinggoNum[12] == marking && 
+			BinggoNum[18] == marking && 
+			BinggoNum[24] == marking)
+			binggocount++;
+
+		if (BinggoNum[4] == marking && 
+			BinggoNum[8] == marking && 
+			BinggoNum[12] == marking && 
+			BinggoNum[16] == marking && 
+			BinggoNum[20] == marking)
+			binggocount++;
+}
+
+
+
+void endpage()
+{
+	cout << endl << endl << endl;
+	
+	cout << "                                                                                              " << endl;
+	cout << "    ..    .,,,,.   .                                                                           " << endl;
+	cout << "    ,.. .##X###X-..., .,    ;                 ,   ..... ,#####x;  x     .....    ..   ......   " << endl;
+	cout << "    ;.. ;#       ,... ,######  ,.......  ,...,.  ..... =#+...,+#x+-   ,,..   ,x######= . ....  " << endl;
+	cout << "    ,.. ;#       ...;          .......,  ,..... ..... -#        xX   ..  .  X##x-.,,+##....... " << endl;
+	cout << "    .... ; .........+  ......  ......... ,...,  ,.....x   .,....  . ..   . x#;        -x.....,	" << endl;
+	cout << "    ;.... ..........,  .....;  .......,.,....,, .....;.   ......... .,..,. #,           ;...,. " << endl;
+	cout << "    ;,.,.. ..,,;;;.,,, ,.,.,,  ;,,.,.,.,.,.,,,. ,,.,,,    --,;.,.,,  ,,,...x            ;,,,,, " << endl;
+	cout << "    .,,..x#X#X#XXx;.,, ,,,,,;  ,,,,..,,.,,,,,,. +.,,,,    ###x.,,,, .,,,,,,,            ,,,..= " << endl;
+	cout << "    ,;,. #;       ;,,, ,.,,,,  ;,,.;- .,,,,,,,, =- ,.,,     ,..,,,, ..,,,,,,.          ,,,.,,x " << endl;
+	cout << "    .,,. #;       ,.,. .,.,.,  ,,.,.#= ...,.,,;  #. ..,,,,......... + ..,.,,;,. .   ..;,,.. x; " << endl;
+	cout << "     ,.. =,    .,,.. . ....,,  ,...  #+ ...,.,.  ;#.  .........   - -x ....,.,,,;;,,,,.... =x  " << endl;
+	cout << "     .... ..,.,...  ,#  ....,  .....  #x  ....,   =#+.        .,-x#  ##.  .............   +#   " << endl;
+	cout << "     ,            ;x#- .       .....   #X  ...,    .####XX#######+    x#x;              -#x    " << endl;
+	cout << "    .##=;,;;;,-=X##+  .#,..,x.     .    xX    .       .---==-,.         X##x+-;,....-+###,     " << endl;
+	cout << "      x########X=.     +####+  #XX##     =#+++X.                          ,+x#########+.       " << endl;
+	cout << "                               --;-.      ;x+xx                                                " << endl;
+	cout << "                                                                                               " << endl;
+	cout << "                                                                                               " << endl;
+  
+
+
+	cout << endl;
+	cout << endl;
+	cout << "Re Start : AnyKey" << endl;
+	cout << "Quit when 'q' is entered" << endl;
+
+
+	char key = getch();
+	_getch();
+
+	switch (key)
+	{
+	case 'q': break;
+	case 'Q': break;
+	default: main();
+
+	break;
+	}
+
+}
+                                                                                
