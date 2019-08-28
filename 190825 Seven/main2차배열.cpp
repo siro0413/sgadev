@@ -59,13 +59,13 @@ int main()
 
 			switch (shape)
 			{
-			case 0: cout << "¢¼";
+			case 0: cout << "â™ ";
 				break;
-			case 1: cout << "¢À";
+			case 1: cout << "â™£";
 				break;
-			case 2: cout << "¢¾";
+			case 2: cout << "â™¥";
 				break;
-			case 3: cout << "¡ß";
+			case 3: cout << "â—†";
 				break;
 			}
 
@@ -108,7 +108,7 @@ int main()
 			cout << batting << " Batting!" << endl;
 		}
 
-		//High Á¶°Ç
+		//High ì¡°ê±´
 		if (num + 1 > 6)
 		{
 			if (input == E_SEVEN && num + 1 == 7)
@@ -119,12 +119,12 @@ int main()
 
 			else if (input == E_HIGH)
 			{
-				cout << "Á¤´ä(" << num + 1 << ")" << endl;
+				cout << "ì •ë‹µ(" << num + 1 << ")" << endl;
 				money += batting;
 			}
 			else
 			{
-				cout << "¿À´ä(" << num + 1 << ")" << endl;
+				cout << "ì˜¤ë‹µ(" << num + 1 << ")" << endl;
 				money -= batting;
 			}
 
@@ -134,12 +134,12 @@ int main()
 		{
 			if (input == E_LOW)
 			{
-				cout << "Á¤´ä(" << num + 1 << ")" << endl;
+				cout << "ì •ë‹µ(" << num + 1 << ")" << endl;
 				money += batting;
 			}
 			else
 			{
-				cout << "¿À´ä(" << num + 1 << ")" << endl;
+				cout << "ì˜¤ë‹µ(" << num + 1 << ")" << endl;
 				money -= batting;
 			}
 		}
