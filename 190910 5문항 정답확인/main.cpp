@@ -6,9 +6,6 @@ struct Question
 	char answer[100];
 };
 
-Question *ques;
-
-
 char nInput[20];
 
 void Qusetion();
@@ -28,13 +25,13 @@ int main()
 void Qusetion()
 {
 	srand((unsigned)time(NULL));
-
+	
 	Question _ques[5] = { 
-		{"Your name is","ø¿≈√±‘"},
-		{"How old are you?","24ªÏ"},
+		{"Your name is","Ïò§ÌÉùÍ∑ú"},
+		{"How old are you?","24ÏÇ¥"},
 		{"What's your Phone Number?","010-0000-0000"},
-		{"Where do you live?","∫Œ√µ"},
-		{"What are your hobbies?","√•¿–±‚"} 
+		{"Where do you live?","Î∂ÄÏ≤ú"},
+		{"What are your hobbies?","Ï±ÖÏùΩÍ∏∞"} 
 	};
 
 	for (UINT i = 0; i < 100; i++)
@@ -44,32 +41,36 @@ void Qusetion()
 		int dst = rand() % 5;
 
 		swap(_ques[src], _ques[dst]);
-
-		if (i > 4)
-			continue;
-		cout << "¡§¥‰ : ø¿≈√±‘, 24ªÏ, 010-0000-0000, ∫Œ√µ, √•¿œ±‚" << endl << endl;
+		
+	}
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "Ï†ïÎãµ : Ïò§ÌÉùÍ∑ú, 24ÏÇ¥, 010-0000-0000, Î∂ÄÏ≤ú, Ï±ÖÏùºÍ∏∞" << endl << endl;
 		cout << _ques[i].question << endl;
+
 		cout << "----------------" << endl;
 		cout << "input Answer : ";
 		cin >> nInput;
 
+
+
 		if (!strcmp(nInput, _ques[i].answer))
 		{
-			cout << "¡§¥‰" << endl;
+			cout << "Ï†ïÎãµ" << endl;
 			cout << "----------------" << endl;
 		}
 		else
 		{
-			cout << "ø¿¥‰" << endl;
+			cout << "Ïò§Îãµ" << endl;
 			cout << "----------------" << endl;
 		}
 		Sleep(1500);
 		system("cls");
-
 	}
 
 
 
 }
+
 
 
