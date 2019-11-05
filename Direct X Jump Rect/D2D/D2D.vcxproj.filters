@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="Device.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="System\Keyboard.h" />
+    <ClInclude Include="Renders\Shader.h" />
+    <ClInclude Include="Utilities\String.h" />
+    <ClInclude Include="Renders\Rect.h" />
+    <ClInclude Include="System\Player.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Device.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="atdafx.cpp" />
+    <ClCompile Include="System\Keyboard.cpp" />
+    <ClCompile Include="Renders\Shader.cpp" />
+    <ClCompile Include="Utilities\String.cpp" />
+    <ClCompile Include="Renders\Rect.cpp" />
+    <ClCompile Include="System\Player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_Shader2D\Effect.fx" />
+  </ItemGroup>
+</Project>
